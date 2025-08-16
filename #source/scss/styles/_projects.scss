@@ -1,0 +1,131 @@
+.projects {
+	background-image: url('../../../img/png/projects-top-bg-light.png'), url('../../../img/png/projects-bottom-bg-light.png');
+	background-repeat: no-repeat;
+	background-position: 0 0, 100% 100%;
+	[data-theme='dark'] & {
+		background-image: url('../../../img/png/projects-top-bg-dark.png'), url('../../../img/png/projects-bottom-bg-dark.png');
+	}
+
+	&__container {
+		padding-top: 32px;
+		padding-bottom: 48px;
+		@media (max-width: 600px) {
+			padding-top: 52px;
+			padding-bottom: 32px;
+		}
+		
+		h2 {
+			margin-bottom: 32px;
+			@media (max-width: 600px) {
+				margin-bottom: 24px;
+			}
+			span {
+				display: block;
+			}
+		}
+	}
+
+	&__flex {
+		display: flex;
+		flex-wrap: wrap;
+		column-gap: 32px;
+		row-gap: 24px;
+		margin-bottom: 40px;
+	}
+
+	&__item {
+		flex: calc(50% - 32px);
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		background: var(--secondary-background-color);
+		box-shadow: 0px 0px 20px var(--black-25);
+		border-radius: 20px;
+		padding: 24px 24px 24px 32px;
+		transition: all .3s ease-in;
+		@media (max-width: 768.5px) {
+			flex: 100%;
+			&:nth-child(n + 4) {
+				display: none;
+			}
+		}
+		@media (max-width: 600px) {
+			padding: 24px 12px 12px;
+		}
+		&:hover {
+			box-shadow: 0px 0px 20px var(--primary-color);
+		}
+
+		&_title {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-size: 24px;
+			line-height: 26px;
+			@media (max-width: 600px) {
+				gap: 12px;
+			}
+			h4 {
+				color: var(--primary-color);
+			}
+			span {
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				font-weight: 600;
+				color: var(--text-color);
+			}
+		}
+
+		&_text {
+			p {
+				line-height: 26px;
+				color: var(--text-color);
+			}
+		}
+
+		&_skils {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			flex-wrap: wrap;
+			span {
+				font-size: 12px;
+				line-height: 18px;
+				text-align: center;
+				color: var(--primary-color);
+				background: var(--background-color);
+				border-radius: 20px;
+				padding: 4px 8px;
+			}
+		}
+
+		&_info {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+			
+			span {
+				display: flex;
+				align-items: center;
+				gap: 4px;
+				font-size: 12px;
+				line-height: 18px;
+				color: var(--text-color);
+			}
+		}
+	}
+	.btn-more {
+		color: var(--primary-color);
+		svg {
+			stroke: var(--primary-color);
+		}
+		&:hover {
+			color: var(--accent-color);
+			svg {
+				stroke: var(--accent-color);
+			}
+		}
+	}
+}
+

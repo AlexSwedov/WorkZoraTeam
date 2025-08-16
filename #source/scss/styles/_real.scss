@@ -1,0 +1,144 @@
+.real {
+	background-image: url('../../../img/png/real-bg-desctop-light.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	[data-theme='dark'] & {
+		background-image: url('../../../img/png/real-bg-desctop-dark.png');
+	}
+	@media (max-width: 768.5px) {
+		background-image: url('../../../img/png/real-bg-mobile-light.png');
+		background-position: 0 100%;
+		[data-theme='dark'] & {
+			background-image: url('../../../img/png/real-bg-mobile-dark.png');
+		}
+	}
+
+	&__container {
+		padding-top: 80px;
+		padding-bottom: 40px;
+		@media (max-width: 600px) {
+			padding-block: 32px;
+		}
+		
+		h2 {
+			max-width: 416px;
+			@media (max-width: 1024.5px) {
+				margin-bottom: 24px;
+			}
+			@media (max-width: 600px) {
+				max-width: 280px;
+			}
+		}
+	}
+
+	&__flex {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		@media (max-width: 1024.5px) {
+			flex-direction: column;
+		}
+	}
+
+	&__image {
+		flex: calc(42% - 24px);
+		position: relative;
+		height: 594px;
+		@media (max-width: 1024.5px) {
+			order: 2;
+		}
+		img {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			@media (max-width: 1024.5px) {
+				position: static;
+				max-width: 100%;
+				width: 100%;
+			}
+		}
+	}
+
+	&__text {
+		flex: calc(58% - 24px);
+		padding-right: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 48px;
+		@media (max-width: 1024.5px) {
+			order: 1;
+			padding-right: 0;
+			align-items: center;
+		}
+		@media (max-width: 600px) {
+			gap: 24px;
+		}
+
+		&_flex {
+			display: flex;
+			column-gap: 24px;
+			@media (max-width: 1024.5px) {
+				&:first-child {
+					order: 1;
+				}
+				&:nth-child(2) {
+					order: 3;
+				}
+			}
+			@media (max-width: 425px) {
+				flex-direction: column;
+				gap: 24px;
+			}
+		}
+
+		&_item {
+			flex: 1;
+			
+			h4 {
+				color: var(--text-color);
+				margin-bottom: 12px;
+			}
+			p {
+				line-height: 26px;
+				color: var(--text-color);
+			}
+		}
+
+		&_dreams {
+			width: fit-content;
+			display: flex;
+			align-items: center;
+			gap: 48px;
+			padding: 24px;
+			background: var(--secondary-background-color);
+			box-shadow: 0px 0px 20px var(--black-25);
+			border-radius: 20px;
+			margin-top: 16px;
+			@media (max-width: 1115px) {
+				gap: 32px;
+			}
+			@media (max-width: 1024.5px) {
+				order: 2;
+				text-align: center;
+				margin-top: 0;
+			}
+			@media (max-width: 600px) {
+				width: 100%;
+				margin-top: 0;
+				flex-direction: column;
+				gap: 12px;
+			}
+			
+			h3 {
+				max-width: 300px;
+				color: var(--text-color);
+				@media (max-width: 425px) {
+					text-align: center;
+				}
+			}
+		}
+	}
+	
+	.btn-green {}
+}

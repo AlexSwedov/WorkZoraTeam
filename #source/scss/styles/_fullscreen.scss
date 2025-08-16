@@ -1,0 +1,256 @@
+.fullscreen {
+	position: relative;
+	background-image: url('../../../img/jpg/fullscreen.jpg');
+	background-position: 100% 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	@media (max-width: 768.5px) {
+		background-image: url('../../../img/jpg/fullscreen-mobile.jpg');
+	}
+	
+	// .fullscreen__container
+
+	&__container {
+		padding-top: 96px;
+		padding-bottom: 24px;
+	}
+
+	// .fullscreen__wrapper
+
+	&__wrapper {
+		padding-left: 24px;
+		@media (max-width: 768.5px) {
+			padding: 0;
+		}
+	}
+
+	// .fullscreen__title
+
+	&__title {
+		max-width: 540px;
+		font-weight: 700;
+		font-size: 55px;
+		line-height: 82px;
+		color: var(--light-color);
+		margin-bottom: 40px;
+		@media (max-width: 768.5px) {
+			max-width: 530px;
+		}
+		@media (max-width: 600px) {
+			max-width: 200px;
+			font-size: 25px;
+			line-height: 30px;
+			margin-bottom: 12px;
+		}
+	}
+
+	// .fullscreen__list
+
+	&__list {
+		margin-bottom: 31px;
+		padding-left: 24px;
+		@media (max-width: 425px) {
+			display: none;
+		}
+	}
+
+	// .fullscreen__list-item
+
+	&__list-item {
+		position: relative;
+		font-size: 18px;
+		line-height: 32px;
+		color: var(--light-color);
+		@media (max-width: 600px) {
+			font-size: 16px;
+			line-height: 24px;
+		}
+		
+		&::before {
+			content: '';
+			position: absolute;
+			left: -24px;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: var(--light-color);
+		}
+	}
+
+	// .fullscreen__buttons
+
+	&__buttons {
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		margin-bottom: 96px;
+		@media (max-width: 600px) {
+			margin-bottom: 24px;
+		}
+		@media (max-width: 425px) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 12px;
+		}
+	}
+
+	// .fullscreen__button
+
+	&__button {
+		font-size: 14px;
+		line-height: 21px;
+		text-align: center;
+		padding: 8px 16px;
+		box-sizing: border-box;
+		border-radius: 20px;
+		transition: all .3s ease-in;
+	}
+	.button-left {
+		color: var(--dark-color);
+		background: var(--light-color);
+		border: 1px solid var(--light-color);
+		&:hover {
+			color: var(--light-color);
+			background: var(--green-hover);
+			border: 1px solid var(--green-hover);
+		}
+	}
+	.button-right {
+		color: var(--light-color);
+		background: transparent;
+		border: 1px solid var(--light-color);
+		&:hover {
+			color: var(--black-color);
+			border: 1px solid var(--black-color);
+		}
+	}
+
+	// .fullscreen__autor
+
+	&__autor {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 4px;
+		@media (max-width: 600px) {
+			justify-content: flex-start;
+			gap: 8px;
+		}
+	
+		p {
+			font-size: 18px;
+			line-height: 32px;
+			color: var(--light-color);
+			@media (max-width: 600px) {
+				max-width: 200px;
+				font-size: 14px;
+				line-height: 21px;
+			}
+		}
+		a {
+			align-items: center;
+			gap: 4px;
+			font-size: 18px;
+			line-height: 32px;
+			color: var(--light-color);
+			transition: all .3s ease-in;
+			@media (max-width: 600px) {
+				font-size: 14px;
+			}
+
+			img {
+				width: 16px;
+				height: 16px;
+				border: 1px solid var(--light-color);
+				border-radius: 50%;
+				transition: all .3s ease-in;
+			}
+
+			&:hover {
+				color: var(--primary-color);
+
+				img {
+					border: 1px solid var(--primary-color);
+				}
+			}
+		}
+	}
+}
+
+.company {
+	background-color: var(--dark-color);
+	box-shadow: 0px 0px 20px var(--black-25);
+	
+	&__container {
+		display: flex;
+		align-items: center;
+		gap: 96px;
+		@media (max-width: 600px) {
+			gap: 24px;
+		}
+	}
+
+	&__title {
+		width: fit-content;
+		padding-left: 24px;
+		@media (max-width: 600px) {
+			padding: 0;
+		}
+		span {
+			line-height: 32px;
+			color: var(--light-color);
+			white-space: nowrap;
+			@media (max-width: 600px) {
+				display: inline-block;
+				width: 70px;
+				white-space: normal;
+			}
+		}
+	}
+
+	&__marquee {
+		width: 100%;
+		overflow: hidden;
+		white-space: nowrap;
+		position: relative;
+		padding-block: 24px;
+		@media (max-width: 600px) {
+			padding-block: 12px;
+		}
+
+		&_inner {
+			width: max-content;
+			display: inline-flex;
+			align-items: center;
+			column-gap: 64px;
+			white-space: nowrap;
+			will-change: transform;
+			animation: scroll var(--marquee-duration) linear infinite;
+			@media (max-width: 600px) {
+				column-gap: 20px;
+			}
+		}
+
+		&_item {
+			
+			&:last-child {
+				margin-right: 64px;
+				@media (max-width: 600px) {
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+}
+
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100.18%);
+	}
+}

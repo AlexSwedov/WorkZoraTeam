@@ -1,0 +1,36 @@
+:root {
+	// Основні кольори
+	--black-color: #000000;
+	--dark-color: #333333;
+	--light-color: #ffffff;
+	--primary-color: #7EA310;
+	--green-hover: #8CBC68;
+	--accent-color: #216B52;
+
+	// Кольори фону
+	--background-light: #F7F7F7;
+	--background-dark: #3B3B3B;
+
+	// Додаткові відтінки
+	--light-60: rgba(255, 255, 255, 0.6);
+	--light-95: rgba(255, 255, 255, 0.95);
+	--black-25: rgba(0, 0, 0, 0.25);
+	--black-20: rgba(0, 0, 0, 0.2);
+	--dark-95: rgba(51, 51, 51, 0.95);
+	
+	// Змінні кольори світлої теми
+	--text-color: var(--dark-color);
+	--background-color: var(--background-light);
+	--secondary-background-color: var(--light-color);
+	--footer-background-color: var(--dark-color);
+	
+	&[data-theme='dark'] {
+		// Змінні кольори темної теми
+		--text-color: var(--light-color);
+		--background-color: var(--dark-color);
+		--secondary-background-color: var(--background-dark);
+		--footer-background-color: var(--background-dark);
+	}
+}
+
+@import "classes";

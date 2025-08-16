@@ -1,0 +1,128 @@
+.quations {
+	background-color: var(--primary-color);
+	background-image: url('../../../img/png/work-bg-desctop.png');
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+
+	&__container {
+		padding-block: 64px;
+		@media (max-width: 600px) {
+			padding-block: 32px;
+		}
+		h2 {
+			margin-bottom: 40px;
+			@media (max-width: 600px) {
+				margin-bottom: 12px;
+			}
+			span {
+				display: block;
+				color: var(--light-color);
+			}
+		}
+	}
+
+	&__flex {
+		display: flex;
+		// flex-wrap: wrap;
+		column-gap: 32px;
+		// row-gap: 24px;
+		
+		&_column {
+			display: flex;
+			flex-direction: column;
+			gap: 24px;
+			@media (max-width: 600px) {
+				gap: 16px;
+			}
+			
+			&:last-child {
+				.quations__item:last-child {
+					background: transparent;
+					box-shadow: none;
+				}
+			}
+		}
+	}
+
+	&__item {
+		flex: calc(50% - 32px);
+		background: var(--light-color);
+		box-shadow: 0px 0px 20px var(--black-25);
+		border-radius: 20px;
+		max-height: fit-content;
+		overflow: hidden;
+		padding: 24px;
+		
+		.accordion {
+			position: relative;
+			max-width: 100%;
+			width: 100%;
+			background: inherit;
+			text-align: left;
+			font-weight: 600;
+			font-size: 16px;
+			line-height: 26px;
+			color: var(--dark-color);
+			padding-right: 48px;
+			span {
+				display: inline-block;
+				max-width: 585px;
+				@media (max-width: 1024.5px) {
+					max-width: 100%;
+				}
+			}
+			&::after {
+				content: url('data:image/svg+xml,<svg width="31" height="8" viewBox="0 0 31 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 4L29 4" stroke="%237EA310" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 7L30 4L27 1" stroke="%237EA310" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 4C5 3.46957 4.78929 2.96086 4.41421 2.58579C4.03914 2.21071 3.53043 2 3 2C2.46957 2 1.96086 2.21071 1.58579 2.58579C1.21071 2.96086 1 3.46957 1 4C1 4.53043 1.21071 5.03914 1.58579 5.41421C1.96086 5.78929 2.46957 6 3 6C3.53043 6 4.03914 5.78929 4.41421 5.41421C4.78929 5.03914 5 4.53043 5 4Z" stroke="%237EA310" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+				position: absolute;
+				right: 0;
+				opacity: 1;
+				transition: opacity 0.3s ease-in;
+			}
+			&::before {
+				content: url('data:image/svg+xml,<svg width="22" height="12" viewBox="0 0 22 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 11L11 1L1 11" stroke="%237EA310" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+				position: absolute;
+				right: 0;
+				opacity: 0;
+				transition: opacity 0.3s ease-in;
+			}
+			&.active::after {
+				opacity: 0;
+			}
+			&.active::before {
+				opacity: 1;
+			}
+			&.active {
+				padding-bottom: 12px;
+				margin-bottom: 12px;
+				border-bottom: 1px solid var(--primary-color);
+			}
+		}
+		
+		.panel {
+			font-weight: 400;
+			line-height: 26px;
+			color: var(--dark-color);
+			background-color: white;
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.3s ease-in;
+		}
+	
+		.btn-more {
+			&:hover {
+				color: var(--black-color);
+		
+				svg {
+					stroke: var(--black-color);
+				}
+			}
+		}
+	}
+	
+	.hidden-on-mobile {
+		@media (max-width: 1024.5px) {
+			display: none;
+		}
+	}
+}
+

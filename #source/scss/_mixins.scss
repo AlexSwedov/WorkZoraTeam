@@ -1,0 +1,86 @@
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+@mixin flexbox(){display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;font-size:0;}
+@mixin flexboxinline(){display:-webkit-inline-flex;display:-moz-inline-flex;display:-ms-inline-flex;display:-o-inline-flex;display:inline-flex;}
+@mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
+
+
+// Загальна мапа для утилітарних класів
+$utilities: (
+	mt: margin-top,
+	pb: padding-bottom,
+	p: padding,
+	fs: font-size,
+);
+
+// Значення для класів
+$values: (
+	24: 24px,
+	8: 8px,
+	16: 16px,
+	bold: bold,
+);
+
+// Точки зупину для адаптивності
+$breakpoints: (
+	lg: 992px,
+	md: 768px,
+);
+
+// Функція для розділення імені класу на частини
+@function split-class($class) {
+	$result: (
+	);
+$temp: $class;
+$index: str-index($temp, '-');
+
+@while $index {
+	$result: append($result, str-slice($temp, 1, $index - 1));
+	$temp: str-slice($temp, $index + 1);
+	$index: str-index($temp, '-');
+}
+
+$result: append($result, $temp);
+@return $result;
+}
+
+// Міксин для генерації класу
+@mixin class($class-name) {
+	$parts: split-class($class-name);
+	$prefix: null;
+	$breakpoint-key: null;
+	$value-key: null;
+	$parts-count: length($parts);
+
+	@if $parts-count ==2 {
+		$prefix: nth($parts, 1);
+		$value-key: nth($parts, 2);
+	}
+
+	@else if $parts-count ==3 {
+		$prefix: nth($parts, 1);
+		$breakpoint-key: nth($parts, 2);
+		$value-key: nth($parts, 3);
+	}
+
+	@if $prefix !=null and $value-key !=null and map-has-key($utilities, $prefix) and map-has-key($values, $value-key) {
+		$property: map-get($utilities, $prefix);
+		$value: map-get($values, $value-key);
+		$selector: ".#{$class-name}";
+
+		@if $breakpoint-key !=null and map-has-key($breakpoints, $breakpoint-key) {
+			$bp-value: map-get($breakpoints, $breakpoint-key);
+
+			@media (min-width: $bp-value) {
+				#{$selector} {
+					#{$property}: #{$value};
+				}
+			}
+		}
+
+		@else {
+			#{$selector} {
+				#{$property}: #{$value};
+			}
+		}
+	}
+}
