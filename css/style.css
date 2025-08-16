@@ -1555,6 +1555,8 @@ body {
   display: inline-flex;
   width: 12px;
   height: 12px;
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
 }
 @media (max-width: 768.5px) {
   .slider-buttons .button-prev,
