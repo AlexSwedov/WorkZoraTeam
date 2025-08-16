@@ -1556,6 +1556,12 @@ body {
   width: 12px;
   height: 12px;
 }
+@media (max-width: 768.5px) {
+  .slider-buttons .button-prev,
+  .slider-buttons .button-next {
+    width: 50px;
+  }
+}
 .slider-buttons .button-prev::after,
 .slider-buttons .button-next::after {
   position: absolute;
@@ -1587,8 +1593,20 @@ body {
 .slider-buttons .button-prev::after {
   transform: translate(-50%, -50%) rotate(135deg);
 }
+@media (max-width: 768.5px) {
+  .slider-buttons .button-prev::after {
+    left: 100%;
+    transform: translate(-100%, -50%) rotate(135deg);
+  }
+}
 .slider-buttons .button-next::after {
   transform: translate(-50%, -50%) rotate(-45deg);
+}
+@media (max-width: 768.5px) {
+  .slider-buttons .button-next::after {
+    left: 0;
+    transform: translate(0, -50%) rotate(-45deg);
+  }
 }
 
 .bigBlock {

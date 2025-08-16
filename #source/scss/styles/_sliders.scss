@@ -221,7 +221,9 @@
 		display: inline-flex;
 		width: 12px;
 		height: 12px;
-		@media (max-width: 768.5px) {}
+		@media (max-width: 768.5px) {
+			width: 50px;
+		}
 	
 		&::after {
 			position: absolute;
@@ -249,12 +251,20 @@
 	.button-prev {
 		&::after {
 			transform: translate(-50%, -50%) rotate(135deg);
+			@media (max-width: 768.5px) {
+				left: 100%;
+				transform: translate(-100%, -50%) rotate(135deg);
+			}
 		}
 	}
 
 	.button-next {
 		&::after {
 			transform: translate(-50%, -50%) rotate(-45deg);
+			@media (max-width: 768.5px) {
+				left: 0;
+				transform: translate(0, -50%) rotate(-45deg);
+			}
 		}
 	}
 }
