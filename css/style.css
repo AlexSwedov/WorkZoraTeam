@@ -712,6 +712,9 @@ body {
     border-radius: 0;
     overflow: visible;
   }
+  .header .sub-menu .tab-content-item:hover span {
+    color: var(--primary-color);
+  }
   .header .sub-menu .tab-content-item span {
     color: var(--text-color);
     padding: 0;

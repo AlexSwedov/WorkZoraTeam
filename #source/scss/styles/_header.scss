@@ -501,6 +501,9 @@
 					box-shadow: none;
 					border-radius: 0;
 					overflow: visible;
+					span {
+						color: var(--primary-color);
+					}
 				}
 				span {
 					color: var(--text-color);
